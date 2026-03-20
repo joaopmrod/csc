@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coimbra Ski Club</title>
+    <meta name="description" content="Clube de Ski e Snowboard sedeado em Coimbra. Formação e Competição.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#0ea5e9',
+                            dark: '#0f172a',
+                            light: '#f8fafc'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-brand-light antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-brand-dark/90 backdrop-blur-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <i class="fa-solid fa-person-skiing text-brand-blue text-3xl"></i>
+                    <span class="font-bold text-2xl text-white tracking-wider">CSC</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#inicio" class="text-gray-300 hover:text-white transition">Início</a>
+                    <a href="#sobre" class="text-gray-300 hover:text-white transition">Sobre Nós</a>
+                    <a href="#formacao" class="text-gray-300 hover:text-white transition">Formação & Competição</a>
+                    <a href="#organizacao" class="text-gray-300 hover:text-white transition">Organização</a>
+                    <a href="#aderir" class="bg-brand-blue text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-500 transition shadow-lg">Aderir</a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-dark pb-4 px-4">
+            <a href="#inicio" class="block py-2 text-gray-300 hover:text-white">Início</a>
+            <a href="#sobre" class="block py-2 text-gray-300 hover:text-white">Sobre Nós</a>
+            <a href="#formacao" class="block py-2 text-gray-300 hover:text-white">Formação & Competição</a>
+            <a href="#organizacao" class="block py-2 text-gray-300 hover:text-white">Organização</a>
+            <a href="#aderir" class="block py-2 mt-2 text-center bg-brand-blue text-white rounded-full font-semibold">Aderir</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-bg h-screen flex items-center justify-center text-center px-4">
+        <div class="max-w-4xl mx-auto mt-16">
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg">Coimbra Ski Club</h1>
+            <p class="text-xl md:text-2xl text-gray-200 mb-10 font-light">A neve começa aqui. O teu clube de Ski e Snowboard no coração de Portugal.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#aderir" class="bg-brand-blue text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-500 transition transform hover:-translate-y-1 shadow-xl">Junta-te a Nós</a>
+                <a href="#sobre" class="bg-white/10 text-white border border-white/30 backdrop-blur-sm px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition">Saber Mais</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-4">Sobre o Clube</h2>
+                <div class="w-24 h-1 bg-brand-blue mx-auto rounded"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1605540436563-5bca919ae766?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Skiers on mountain" class="rounded-2xl shadow-2xl">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-brand-dark">A Paixão pela Neve em Coimbra</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Fundado na histórica cidade de Coimbra, o Coimbra Ski Club (CSC) nasceu da paixão partilhada por um grupo de entusiastas dos desportos de inverno. O nosso objetivo é aproximar a neve da nossa região, promovendo a prática de Ski e Snowboard.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Organizamos viagens regulares às principais estâncias da Península Ibérica e Europa, proporcionando aos nossos sócios as melhores condições para a prática desportiva, convívio e evolução técnica.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 mt-8">
+                        <div class="text-center p-4 bg-brand-light rounded-xl">
+                            <i class="fa-solid fa-mountain text-3xl text-brand-blue mb-2"></i>
+                            <h4 class="font-bold text-xl">Viagens</h4>
+                            <p class="text-sm text-gray-500">Saídas regulares</p>
+                        </div>
+                        <div class="text-center p-4 bg-brand-light rounded-xl">
+                            <i class="fa-solid fa-users text-3xl text-brand-blue mb-2"></i>
+                            <h4 class="font-bold text-xl">Comunidade</h4>
+                            <p class="text-sm text-gray-500">Eventos sociais</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formação e Competição -->
+    <section id="formacao" class="py-20 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-4">Formação & Competição</h2>
+                <div class="w-24 h-1 bg-brand-blue mx-auto rounded"></div>
+                <p class="mt-6 text-gray-600 max-w-2xl mx-auto">Do primeiro contacto com a neve até aos pódios nacionais. Temos programas adaptados a todos os níveis e idades.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Formação Card -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-[url('https://images.unsplash.com/photo-1522055666038-16167862dece?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center"></div>
+                    <div class="p-8">
+                        <div class="flex items-center gap-3 mb-4">
+                            <i class="fa-solid fa-graduation-cap text-2xl text-brand-blue"></i>
+                            <h3 class="text-2xl font-bold text-brand-dark">Escola de Formação</h3>
+                        </div>
+                        <p class="text-gray-600 mb-6">Aprende com instrutores certificados. Aulas para crianças e adultos, desde o nível zero ao aperfeiçoamento técnico em Ski e Snowboard.</p>
+                        <ul class="space-y-3 text-gray-600">
+                            <li><i class="fa-solid fa-check text-brand-blue mr-2"></i> Iniciação e Batismos de Neve</li>
+                            <li><i class="fa-solid fa-check text-brand-blue mr-2"></i> Aulas de Grupo e Privadas</li>
+                            <li><i class="fa-solid fa-check text-brand-blue mr-2"></i> Campos de Férias na Neve</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Competição Card -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-[url('https://images.unsplash.com/photo-1565992441121-4367c2967103?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center"></div>
+                    <div class="p-8">
+                        <div class="flex items-center gap-3 mb-4">
+                            <i class="fa-solid fa-trophy text-2xl text-brand-blue"></i>
+                            <h3 class="text-2xl font-bold text-brand-dark">Equipa de Competição</h3>
+                        </div>
+                        <p class="text-gray-600 mb-6">Para os atletas que procuram superar os seus limites. Treinos específicos, preparação física e participação nos circuitos nacionais.</p>
+                        <ul class="space-y-3 text-gray-600">
+                            <li><i class="fa-solid fa-check text-brand-blue mr-2"></i> Treinos de Slalom e Gigante</li>
+                            <li><i class="fa-solid fa-check text-brand-blue mr-2"></i> Preparação Física em Coimbra</li>
+                            <li><i class="fa-solid fa-check text-brand-blue mr-2"></i> Apoio em Provas Nacionais</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Organização -->
+    <section id="organizacao" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-4">A Nossa Equipa</h2>
+                <div class="w-24 h-1 bg-brand-blue mx-auto rounded"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Membro 1 -->
+                <div class="text-center">
+                    <div class="w-40 h-40 mx-auto rounded-full overflow-hidden mb-4 shadow-lg">
+                        <img src="https://ui-avatars.com/api/?name=João+Silva&background=0ea5e9&color=fff&size=200" alt="Presidente" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark">João Silva</h3>
+                    <p class="text-brand-blue font-medium mb-2">Presidente</p>
+                    <p class="text-gray-500 text-sm px-4">Apaixonado por ski há mais de 20 anos, focado em fazer crescer a comunidade em Coimbra.</p>
+                </div>
+                <!-- Membro 2 -->
+                <div class="text-center">
+                    <div class="w-40 h-40 mx-auto rounded-full overflow-hidden mb-4 shadow-lg">
+                        <img src="https://ui-avatars.com/api/?name=Marta+Costa&background=0ea5e9&color=fff&size=200" alt="Diretora Técnica" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark">Marta Costa</h3>
+                    <p class="text-brand-blue font-medium mb-2">Diretora Técnica</p>
+                    <p class="text-gray-500 text-sm px-4">Ex-atleta de competição e instrutora certificada. Coordena a escola de formação.</p>
+                </div>
+                <!-- Membro 3 -->
+                <div class="text-center">
+                    <div class="w-40 h-40 mx-auto rounded-full overflow-hidden mb-4 shadow-lg">
+                        <img src="https://ui-avatars.com/api/?name=Pedro+Santos&background=0ea5e9&color=fff&size=200" alt="Tesoureiro" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark">Pedro Santos</h3>
+                    <p class="text-brand-blue font-medium mb-2">Logística & Eventos</p>
+                    <p class="text-gray-500 text-sm px-4">O mestre da organização das nossas viagens às estâncias e eventos sociais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulário Aderir -->
+    <section id="aderir" class="py-20 bg-brand-dark text-white relative overflow-hidden">
+        <!-- Background element -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-brand-blue opacity-10 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 rounded-full bg-brand-blue opacity-10 blur-3xl"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Torna-te Sócio</h2>
+                <p class="text-gray-300">Preenche o formulário abaixo para receberes mais informações sobre como aderir ao Coimbra Ski Club.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-8 md:p-10 shadow-2xl text-gray-800">
+                <!-- Usando Formspree para funcionar no GitHub Pages sem backend -->
+                <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST" id="join-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome Completo *</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Telemóvel</label>
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition">
+                        </div>
+                        <div>
+                            <label for="modality" class="block text-sm font-medium text-gray-700 mb-1">Modalidade de Interesse</label>
+                            <select id="modality" name="modality" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition bg-white">
+                                <option value="ambos">Ski & Snowboard</option>
+                                <option value="ski">Apenas Ski</option>
+                                <option value="snowboard">Apenas Snowboard</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Nível de Experiência</label>
+                        <div class="flex flex-wrap gap-4">
+                            <label class="flex items-center">
+                                <input type="radio" name="level" value="iniciante" class="text-brand-blue focus:ring-brand-blue h-4 w-4" checked>
+                                <span class="ml-2 text-gray-700">Iniciante (Nunca pratiquei)</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="level" value="intermedio" class="text-brand-blue focus:ring-brand-blue h-4 w-4">
+                                <span class="ml-2 text-gray-700">Intermédio</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="level" value="avancado" class="text-brand-blue focus:ring-brand-blue h-4 w-4">
+                                <span class="ml-2 text-gray-700">Avançado / Competição</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensagem (Opcional)</label>
+                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition"></textarea>
+                    </div>
+
+                    <div class="text-center pt-4">
+                        <button type="submit" class="bg-brand-blue text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-500 transition shadow-lg w-full md:w-auto">
+                            Enviar Pedido de Adesão <i class="fa-solid fa-paper-plane ml-2"></i>
+                        </button>
+                    </div>
+                </form>
+                
+                <!-- Mensagem de Sucesso (Simulada para demonstração) -->
+                <div id="success-message" class="hidden text-center py-8">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa-solid fa-check text-3xl text-green-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brand-dark mb-2">Obrigado!</h3>
+                    <p class="text-gray-600">Recebemos o teu pedido. Iremos contactar-te em breve com mais informações.</p>
+                    <button id="reset-form" class="mt-6 text-brand-blue font-semibold hover:underline">Enviar novo pedido</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fa-solid fa-person-skiing text-brand-blue text-2xl"></i>
+                        <span class="font-bold text-xl text-white tracking-wider">CSC</span>
+                    </div>
+                    <p class="mb-4">O clube de desportos de inverno da cidade de Coimbra. Promovemos a prática de Ski e Snowboard para todas as idades.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fa-brands fa-facebook text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fa-brands fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fa-brands fa-tiktok text-xl"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="hover:text-brand-blue transition">Início</a></li>
+                        <li><a href="#sobre" class="hover:text-brand-blue transition">Sobre Nós</a></li>
+                        <li><a href="#formacao" class="hover:text-brand-blue transition">Formação & Competição</a></li>
+                        <li><a href="#organizacao" class="hover:text-brand-blue transition">Organização</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Contactos</h4>
+                    <ul class="space-y-2">
+                        <li><i class="fa-solid fa-location-dot mr-2 text-brand-blue"></i> Coimbra, Portugal</li>
+                        <li><i class="fa-solid fa-envelope mr-2 text-brand-blue"></i> info@coimbraskiclub.pt</li>
+                        <li><i class="fa-solid fa-phone mr-2 text-brand-blue"></i> +351 900 000 000</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-sm">
+                <p>&copy; 2026 Coimbra Ski Club. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Fechar menu mobile ao clicar num link
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Form Submission Simulation (Para funcionar sem backend no GitHub Pages)
+        const form = document.getElementById('join-form');
+        const successMsg = document.getElementById('success-message');
+        const resetBtn = document.getElementById('reset-form');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // Impede o envio real para demonstração
+            // Se usares Formspree, remove este preventDefault e o código abaixo, 
+            // e coloca o URL correto no action do form.
+            
+            form.classList.add('hidden');
+            successMsg.classList.remove('hidden');
+        });
+
+        resetBtn.addEventListener('click', () => {
+            form.reset();
+            successMsg.classList.add('hidden');
+            form.classList.remove('hidden');
+        });
+
+        // Navbar Background on Scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
