@@ -8,7 +8,7 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <!-- Favicon + Apple touch -->
     <link rel="icon" type="image/png" href="assets/logo.png">
     <link rel="apple-touch-icon" href="assets/logo.png">
@@ -19,14 +19,21 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Montserrat', 'sans-serif'],
+                        sans: ['Nunito', 'sans-serif'],
                     },
                     colors: {
                         brand: {
-                            blue: '#0ea5e9',
-                            dark: '#0f172a',
-                            light: '#f8fafc'
+                            blue: '#6ca6c1',      // Icy blue from the river
+                            dark: '#2c3e50',      // Softer dark blue/gray
+                            light: '#f5f3ef',     // Warm cream/snow base
+                            accent: '#c86b53',    // Terracotta roof color
+                            wood: '#e6d5b8',      // Wood table/base color
+                            snow: '#ffffff'       // Pure snow white
                         }
+                    },
+                    boxShadow: {
+                        'game-piece': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05), inset 0 -4px 0 0 rgba(0,0,0,0.1)',
+                        'board': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255,255,255,0.5)'
                     }
                 }
             }
@@ -34,7 +41,7 @@
     </script>
     <style>
         .hero-bg {
-            background-image: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-image: linear-gradient(rgba(44, 62, 80, 0.4), rgba(44, 62, 80, 0.6)), url('assets/hero-bg-isometric.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -47,79 +54,82 @@
 <body class="font-sans text-gray-800 bg-brand-light antialiased">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-brand-dark/90 backdrop-blur-sm transition-all duration-300">
+    <nav class="fixed w-full z-50 bg-brand-dark/95 backdrop-blur-md transition-all duration-300 border-b-4 border-brand-wood">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center gap-2">
-                    <img src="assets/logo_white_transparent.png" alt="Clube Neve de Coimbra" class="h-10 w-10 object-contain">
-                    <span class="font-bold text-2xl text-white tracking-wider">CNC</span>
+                    <img src="assets/logo_white_transparent.png" alt="Clube Neve de Coimbra" class="h-10 w-10 object-contain drop-shadow-md">
+                    <span class="font-extrabold text-2xl text-brand-snow tracking-wider">CNC</span>
                 </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#inicio" class="text-gray-300 hover:text-white transition">Início</a>
-                    <a href="#sobre" class="text-gray-300 hover:text-white transition">Sobre Nós</a>
-                    <a href="#formacao" class="text-gray-300 hover:text-white transition">Formação & Competição</a>
-                    <a href="#organizacao" class="text-gray-300 hover:text-white transition">Organização</a>
-                    <a href="#aderir" class="bg-brand-blue text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-500 transition shadow-lg">Aderir</a>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#inicio" class="text-brand-light hover:text-brand-accent transition font-semibold">Início</a>
+                    <a href="#sobre" class="text-brand-light hover:text-brand-accent transition font-semibold">Sobre Nós</a>
+                    <a href="#formacao" class="text-brand-light hover:text-brand-accent transition font-semibold">Formação & Competição</a>
+                    <a href="#organizacao" class="text-brand-light hover:text-brand-accent transition font-semibold">Organização</a>
+                    <a href="#aderir" class="bg-brand-accent text-brand-snow px-6 py-2 rounded-xl font-bold hover:bg-opacity-90 transition shadow-game-piece transform hover:-translate-y-0.5">Aderir</a>
                 </div>
                 <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                    <button id="mobile-menu-btn" class="text-brand-light hover:text-brand-accent focus:outline-none">
                         <i class="fa-solid fa-bars text-2xl"></i>
                     </button>
                 </div>
             </div>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-brand-dark pb-4 px-4">
-            <a href="#inicio" class="block py-2 text-gray-300 hover:text-white">Início</a>
-            <a href="#sobre" class="block py-2 text-gray-300 hover:text-white">Sobre Nós</a>
-            <a href="#formacao" class="block py-2 text-gray-300 hover:text-white">Formação & Competição</a>
-            <a href="#organizacao" class="block py-2 text-gray-300 hover:text-white">Organização</a>
-            <a href="#aderir" class="block py-2 mt-2 text-center bg-brand-blue text-white rounded-full font-semibold">Aderir</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-dark pb-4 px-4 border-t border-brand-wood/30">
+            <a href="#inicio" class="block py-3 text-brand-light hover:text-brand-accent font-semibold">Início</a>
+            <a href="#sobre" class="block py-3 text-brand-light hover:text-brand-accent font-semibold">Sobre Nós</a>
+            <a href="#formacao" class="block py-3 text-brand-light hover:text-brand-accent font-semibold">Formação & Competição</a>
+            <a href="#organizacao" class="block py-3 text-brand-light hover:text-brand-accent font-semibold">Organização</a>
+            <a href="#aderir" class="block py-3 mt-2 text-center bg-brand-accent text-brand-snow rounded-xl font-bold shadow-game-piece">Aderir</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="inicio" class="hero-bg h-screen flex items-center justify-center text-center px-4">
-        <div class="max-w-4xl mx-auto mt-16">
-            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg">Clube Neve de Coimbra</h1>
-            <p class="text-xl md:text-2xl text-gray-200 mb-10 font-light">A neve começa aqui. O teu clube de Ski e Snowboard no coração de Portugal.</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#aderir" class="bg-brand-blue text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-500 transition transform hover:-translate-y-1 shadow-xl">Junta-te a Nós</a>
-                <a href="#sobre" class="bg-white/10 text-white border border-white/30 backdrop-blur-sm px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition">Saber Mais</a>
+    <section id="inicio" class="hero-bg h-screen flex items-center justify-center text-center px-4 relative">
+        <div class="absolute bottom-0 w-full h-16 bg-gradient-to-t from-brand-light to-transparent"></div>
+        <div class="max-w-4xl mx-auto mt-16 relative z-10">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-brand-snow mb-6 drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">Clube Neve de Coimbra</h1>
+            <p class="text-xl md:text-2xl text-brand-light mb-10 font-semibold drop-shadow-md">A neve começa aqui. O teu clube de Ski e Snowboard no coração de Portugal.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="#aderir" class="bg-brand-accent text-brand-snow px-8 py-4 rounded-xl font-bold text-lg hover:bg-opacity-90 transition transform hover:-translate-y-1 shadow-game-piece">Junta-te a Nós</a>
+                <a href="#sobre" class="bg-brand-snow/90 text-brand-dark px-8 py-4 rounded-xl font-bold text-lg hover:bg-white transition transform hover:-translate-y-1 shadow-game-piece">Saber Mais</a>
             </div>
         </div>
     </section>
 
     <!-- Sobre Section -->
-    <section id="sobre" class="py-20 bg-white">
+    <section id="sobre" class="py-20 bg-brand-light relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-4">Sobre o Clube</h2>
-                <div class="w-24 h-1 bg-brand-blue mx-auto rounded"></div>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-4">Sobre o Clube</h2>
+                <div class="w-24 h-2 bg-brand-accent mx-auto rounded-full"></div>
             </div>
             <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <img src="assets/coimbra-model.png" alt="Maquete do Clube Neve de Coimbra" class="rounded-2xl shadow-2xl w-full h-auto">
+                <div class="relative p-4 bg-brand-wood rounded-3xl shadow-board transform rotate-1 hover:rotate-0 transition duration-500">
+                    <div class="bg-brand-snow p-2 rounded-2xl">
+                        <img src="assets/coimbra-model.png" alt="Maquete do Clube Neve de Coimbra" class="rounded-xl w-full h-auto">
+                    </div>
                 </div>
                 <div>
-                    <h3 class="text-2xl font-semibold mb-4 text-brand-dark">A Paixão pela Neve em Coimbra</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
+                    <h3 class="text-2xl font-bold mb-4 text-brand-dark">A Paixão pela Neve em Coimbra</h3>
+                    <p class="text-gray-700 mb-6 leading-relaxed font-medium text-lg">
                         Fundado na histórica cidade de Coimbra, o Clube Neve de Coimbra (CNC) nasceu da paixão partilhada por um grupo de entusiastas dos desportos de inverno. O nosso objetivo é aproximar a neve da nossa região, promovendo a prática de Ski e Snowboard.
                     </p>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
+                    <p class="text-gray-700 mb-6 leading-relaxed font-medium text-lg">
                         Organizamos viagens regulares às principais estâncias da Península Ibérica e Europa, proporcionando aos nossos sócios as melhores condições para a prática desportiva, convívio e evolução técnica.
                     </p>
                     <div class="grid grid-cols-2 gap-6 mt-8">
-                        <div class="text-center p-4 bg-brand-light rounded-xl">
-                            <i class="fa-solid fa-mountain text-3xl text-brand-blue mb-2"></i>
-                            <h4 class="font-bold text-xl">Viagens</h4>
-                            <p class="text-sm text-gray-500">Saídas regulares</p>
+                        <div class="text-center p-6 bg-brand-snow rounded-2xl shadow-game-piece border-b-4 border-brand-blue">
+                            <i class="fa-solid fa-mountain text-4xl text-brand-blue mb-3"></i>
+                            <h4 class="font-extrabold text-xl text-brand-dark">Viagens</h4>
+                            <p class="text-sm text-gray-500 font-bold mt-1">Saídas regulares</p>
                         </div>
-                        <div class="text-center p-4 bg-brand-light rounded-xl">
-                            <i class="fa-solid fa-users text-3xl text-brand-blue mb-2"></i>
-                            <h4 class="font-bold text-xl">Comunidade</h4>
-                            <p class="text-sm text-gray-500">Eventos sociais</p>
+                        <div class="text-center p-6 bg-brand-snow rounded-2xl shadow-game-piece border-b-4 border-brand-accent">
+                            <i class="fa-solid fa-users text-4xl text-brand-accent mb-3"></i>
+                            <h4 class="font-extrabold text-xl text-brand-dark">Comunidade</h4>
+                            <p class="text-sm text-gray-500 font-bold mt-1">Eventos sociais</p>
                         </div>
                     </div>
                 </div>
@@ -128,45 +138,49 @@
     </section>
 
     <!-- Formação e Competição -->
-    <section id="formacao" class="py-20 bg-brand-light">
+    <section id="formacao" class="py-20 bg-brand-snow relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-4">Formação & Competição</h2>
-                <div class="w-24 h-1 bg-brand-blue mx-auto rounded"></div>
-                <p class="mt-6 text-gray-600 max-w-2xl mx-auto">Do primeiro contacto com a neve até aos pódios nacionais. Temos programas adaptados a todos os níveis e idades.</p>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-4">Formação & Competição</h2>
+                <div class="w-24 h-2 bg-brand-blue mx-auto rounded-full"></div>
+                <p class="mt-6 text-gray-700 font-medium max-w-2xl mx-auto text-lg">Do primeiro contacto com a neve até aos pódios nacionais. Temos programas adaptados a todos os níveis e idades.</p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="grid md:grid-cols-2 gap-10">
                 <!-- Formação Card -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
-                    <img src="assets/formacao-snowboard.png" alt="Snowboard na neve" class="h-48 w-full object-cover">
+                <div class="bg-brand-light rounded-3xl shadow-game-piece overflow-hidden hover:-translate-y-2 transition duration-300 border-4 border-brand-wood">
+                    <img src="assets/formacao-isometric.png" alt="Snowboard na neve" class="h-56 w-full object-cover border-b-4 border-brand-wood">
                     <div class="p-8">
                         <div class="flex items-center gap-3 mb-4">
-                            <i class="fa-solid fa-graduation-cap text-2xl text-brand-blue"></i>
-                            <h3 class="text-2xl font-bold text-brand-dark">Escola de Formação</h3>
+                            <div class="w-12 h-12 bg-brand-blue rounded-xl flex items-center justify-center shadow-inner">
+                                <i class="fa-solid fa-graduation-cap text-2xl text-brand-snow"></i>
+                            </div>
+                            <h3 class="text-2xl font-extrabold text-brand-dark">Escola de Formação</h3>
                         </div>
-                        <p class="text-gray-600 mb-6">Aprende com instrutores certificados. Aulas para crianças e adultos, desde o nível zero ao aperfeiçoamento técnico em Ski e Snowboard.</p>
-                        <ul class="space-y-3 text-gray-600">
-                            <li><i class="fa-solid fa-check text-brand-blue mr-2"></i> Iniciação e Batismos de Neve</li>
-                            <li><i class="fa-solid fa-check text-brand-blue mr-2"></i> Aulas de Grupo e Privadas</li>
-                            <li><i class="fa-solid fa-check text-brand-blue mr-2"></i> Campos de Férias na Neve</li>
+                        <p class="text-gray-700 mb-6 font-medium">Aprende com instrutores certificados. Aulas para crianças e adultos, desde o nível zero ao aperfeiçoamento técnico em Ski e Snowboard.</p>
+                        <ul class="space-y-4 text-gray-700 font-bold">
+                            <li class="flex items-center"><i class="fa-solid fa-check-circle text-brand-blue mr-3 text-xl"></i> Iniciação e Batismos de Neve</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check-circle text-brand-blue mr-3 text-xl"></i> Aulas de Grupo e Privadas</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check-circle text-brand-blue mr-3 text-xl"></i> Campos de Férias na Neve</li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- Competição Card -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
-                    <div class="h-48 bg-[url('https://images.unsplash.com/photo-1565992441121-4367c2967103?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center"></div>
+                <div class="bg-brand-light rounded-3xl shadow-game-piece overflow-hidden hover:-translate-y-2 transition duration-300 border-4 border-brand-wood">
+                    <img src="assets/competicao-isometric.png" alt="Competição de Ski" class="h-56 w-full object-cover border-b-4 border-brand-wood">
                     <div class="p-8">
                         <div class="flex items-center gap-3 mb-4">
-                            <i class="fa-solid fa-trophy text-2xl text-brand-blue"></i>
-                            <h3 class="text-2xl font-bold text-brand-dark">Equipa de Competição</h3>
+                            <div class="w-12 h-12 bg-brand-accent rounded-xl flex items-center justify-center shadow-inner">
+                                <i class="fa-solid fa-trophy text-2xl text-brand-snow"></i>
+                            </div>
+                            <h3 class="text-2xl font-extrabold text-brand-dark">Equipa de Competição</h3>
                         </div>
-                        <p class="text-gray-600 mb-6">Para os atletas que procuram superar os seus limites. Treinos específicos, preparação física e participação nos circuitos nacionais.</p>
-                        <ul class="space-y-3 text-gray-600">
-                            <li><i class="fa-solid fa-check text-brand-blue mr-2"></i> Treinos de Slalom e Gigante</li>
-                            <li><i class="fa-solid fa-check text-brand-blue mr-2"></i> Preparação Física em Coimbra</li>
-                            <li><i class="fa-solid fa-check text-brand-blue mr-2"></i> Apoio em Provas Nacionais</li>
+                        <p class="text-gray-700 mb-6 font-medium">Para os atletas que procuram superar os seus limites. Treinos específicos, preparação física e participação nos circuitos nacionais.</p>
+                        <ul class="space-y-4 text-gray-700 font-bold">
+                            <li class="flex items-center"><i class="fa-solid fa-check-circle text-brand-accent mr-3 text-xl"></i> Treinos de Slalom e Gigante</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check-circle text-brand-accent mr-3 text-xl"></i> Preparação Física em Coimbra</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check-circle text-brand-accent mr-3 text-xl"></i> Apoio em Provas Nacionais</li>
                         </ul>
                     </div>
                 </div>
@@ -175,79 +189,79 @@
     </section>
 
     <!-- Organização -->
-    <section id="organizacao" class="py-20 bg-white">
+    <section id="organizacao" class="py-20 bg-brand-light relative border-t-8 border-brand-wood border-dashed">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-4">A Nossa Equipa</h2>
-                <div class="w-24 h-1 bg-brand-blue mx-auto rounded"></div>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-4">A Nossa Equipa</h2>
+                <div class="w-24 h-2 bg-brand-accent mx-auto rounded-full"></div>
             </div>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
                 <!-- Membro 1 -->
-                <div class="text-center">
-                    <div class="w-40 h-40 mx-auto rounded-full overflow-hidden mb-4 shadow-lg">
-                        <img src="assets/image.png" alt="Presidente" class="w-full h-full object-cover" style="filter: hue-rotate(0deg) saturate(1.2);">
+                <div class="text-center bg-brand-snow p-8 rounded-3xl shadow-game-piece border-b-8 border-brand-blue transform hover:-translate-y-2 transition">
+                    <div class="w-32 h-32 mx-auto rounded-full overflow-hidden mb-6 shadow-inner border-4 border-brand-light bg-brand-light">
+                        <img src="assets/team-member-1-traje.png" alt="Presidente" class="w-full h-full object-cover scale-110">
                     </div>
-                    <h3 class="text-xl font-bold text-brand-dark">Rui Claude</h3>
-                    <p class="text-brand-blue font-medium mb-2">Presidente</p>
-                    <p class="text-gray-500 text-sm px-4">Apaixonado por ski há mais de 20 anos, focado em fazer crescer a comunidade em Coimbra.</p>
+                    <h3 class="text-2xl font-extrabold text-brand-dark">Rui Claude</h3>
+                    <p class="text-brand-blue font-bold mb-3 uppercase tracking-wide text-sm">Presidente</p>
+                    <p class="text-gray-600 font-medium">Apaixonado por ski há mais de 20 anos, focado em fazer crescer a comunidade em Coimbra.</p>
                 </div>
                 <!-- Membro 2 -->
-                <div class="text-center">
-                    <div class="w-40 h-40 mx-auto rounded-full overflow-hidden mb-4 shadow-lg">
-                        <img src="assets/image.png" alt="Diretora Técnica" class="w-full h-full object-cover" style="filter: hue-rotate(140deg) saturate(1.25);">
+                <div class="text-center bg-brand-snow p-8 rounded-3xl shadow-game-piece border-b-8 border-brand-accent transform hover:-translate-y-2 transition">
+                    <div class="w-32 h-32 mx-auto rounded-full overflow-hidden mb-6 shadow-inner border-4 border-brand-light bg-brand-light">
+                        <img src="assets/team-member-2-traje.png" alt="Diretora Técnica" class="w-full h-full object-cover scale-110">
                     </div>
-                    <h3 class="text-xl font-bold text-brand-dark">Marta Claude</h3>
-                    <p class="text-brand-blue font-medium mb-2">Diretora Técnica</p>
-                    <p class="text-gray-500 text-sm px-4">Ex-atleta de competição e instrutora certificada. Coordena a escola de formação.</p>
+                    <h3 class="text-2xl font-extrabold text-brand-dark">Marta Claude</h3>
+                    <p class="text-brand-accent font-bold mb-3 uppercase tracking-wide text-sm">Diretora Técnica</p>
+                    <p class="text-gray-600 font-medium">Ex-atleta de competição e instrutora certificada. Coordena a escola de formação.</p>
                 </div>
                 <!-- Membro 3 -->
-                <div class="text-center">
-                    <div class="w-40 h-40 mx-auto rounded-full overflow-hidden mb-4 shadow-lg">
-                        <img src="assets/image.png" alt="Tesoureiro" class="w-full h-full object-cover" style="filter: hue-rotate(-40deg) saturate(1.25);">
+                <div class="text-center bg-brand-snow p-8 rounded-3xl shadow-game-piece border-b-8 border-brand-wood transform hover:-translate-y-2 transition">
+                    <div class="w-32 h-32 mx-auto rounded-full overflow-hidden mb-6 shadow-inner border-4 border-brand-light bg-brand-light">
+                        <img src="assets/team-member-3-traje.png" alt="Tesoureiro" class="w-full h-full object-cover scale-110">
                     </div>
-                    <h3 class="text-xl font-bold text-brand-dark">Pedro Claude</h3>
-                    <p class="text-brand-blue font-medium mb-2">Logística & Eventos</p>
-                    <p class="text-gray-500 text-sm px-4">O mestre da organização das nossas viagens às estâncias e eventos sociais.</p>
+                    <h3 class="text-2xl font-extrabold text-brand-dark">Pedro Claude</h3>
+                    <p class="text-brand-wood font-bold mb-3 uppercase tracking-wide text-sm text-yellow-700">Logística & Eventos</p>
+                    <p class="text-gray-600 font-medium">O mestre da organização das nossas viagens às estâncias e eventos sociais.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Formulário Aderir -->
-    <section id="aderir" class="py-20 bg-brand-dark text-white relative overflow-hidden">
+    <section id="aderir" class="py-20 bg-brand-dark text-brand-snow relative overflow-hidden border-t-8 border-brand-blue">
         <!-- Background element -->
-        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-brand-blue opacity-10 blur-3xl"></div>
-        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 rounded-full bg-brand-blue opacity-10 blur-3xl"></div>
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-brand-blue opacity-20 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 rounded-full bg-brand-accent opacity-20 blur-3xl"></div>
 
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Torna-te Sócio</h2>
-                <p class="text-gray-300">Preenche o formulário abaixo para receberes mais informações sobre como aderir ao Clube Neve de Coimbra.</p>
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-4 drop-shadow-md">Torna-te Sócio</h2>
+                <p class="text-brand-light font-medium text-lg">Preenche o formulário abaixo para receberes mais informações sobre como aderir ao Clube Neve de Coimbra.</p>
             </div>
 
-            <div class="bg-white rounded-2xl p-8 md:p-10 shadow-2xl text-gray-800">
+            <div class="bg-brand-light rounded-3xl p-8 md:p-10 shadow-game-piece text-brand-dark border-4 border-brand-wood">
                 <!-- Usando Formspree para funcionar no GitHub Pages sem backend -->
-                <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST" id="join-form" class="space-y-6">
+                <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST" id="join-form" class="space-y-6 font-bold">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome Completo *</label>
-                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition">
+                            <label for="name" class="block text-sm text-brand-dark mb-2 uppercase tracking-wide">Nome Completo *</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:ring-4 focus:ring-brand-blue/30 focus:border-brand-blue outline-none transition bg-white shadow-inner">
                         </div>
                         <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
-                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition">
+                            <label for="email" class="block text-sm text-brand-dark mb-2 uppercase tracking-wide">Email *</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:ring-4 focus:ring-brand-blue/30 focus:border-brand-blue outline-none transition bg-white shadow-inner">
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Telemóvel</label>
-                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition">
+                            <label for="phone" class="block text-sm text-brand-dark mb-2 uppercase tracking-wide">Telemóvel</label>
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:ring-4 focus:ring-brand-blue/30 focus:border-brand-blue outline-none transition bg-white shadow-inner">
                         </div>
                         <div>
-                            <label for="modality" class="block text-sm font-medium text-gray-700 mb-1">Modalidade de Interesse</label>
-                            <select id="modality" name="modality" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition bg-white">
+                            <label for="modality" class="block text-sm text-brand-dark mb-2 uppercase tracking-wide">Modalidade de Interesse</label>
+                            <select id="modality" name="modality" class="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:ring-4 focus:ring-brand-blue/30 focus:border-brand-blue outline-none transition bg-white shadow-inner">
                                 <option value="ambos">Ski & Snowboard</option>
                                 <option value="ski">Apenas Ski</option>
                                 <option value="snowboard">Apenas Snowboard</option>
@@ -255,84 +269,107 @@
                         </div>
                     </div>
 
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Nível de Experiência</label>
-                        <div class="flex flex-wrap gap-4">
-                            <label class="flex items-center">
-                                <input type="radio" name="level" value="iniciante" class="text-brand-blue focus:ring-brand-blue h-4 w-4" checked>
-                                <span class="ml-2 text-gray-700">Iniciante (Nunca pratiquei)</span>
+                    <div class="bg-white p-6 rounded-2xl border-2 border-gray-200 shadow-inner">
+                        <label class="block text-sm text-brand-dark mb-4 uppercase tracking-wide">Nível de Experiência</label>
+                        <div class="flex flex-wrap gap-6">
+                            <label class="flex items-center cursor-pointer group">
+                                <div class="relative flex items-center justify-center">
+                                    <input type="radio" name="level" value="iniciante" class="peer sr-only" checked>
+                                    <div class="w-6 h-6 rounded-full border-2 border-gray-300 peer-checked:border-brand-blue peer-checked:bg-brand-blue transition"></div>
+                                    <div class="absolute w-2 h-2 rounded-full bg-white opacity-0 peer-checked:opacity-100 transition"></div>
+                                </div>
+                                <span class="ml-3 text-gray-700 group-hover:text-brand-blue transition">Iniciante</span>
                             </label>
-                            <label class="flex items-center">
-                                <input type="radio" name="level" value="intermedio" class="text-brand-blue focus:ring-brand-blue h-4 w-4">
-                                <span class="ml-2 text-gray-700">Intermédio</span>
+                            <label class="flex items-center cursor-pointer group">
+                                <div class="relative flex items-center justify-center">
+                                    <input type="radio" name="level" value="intermedio" class="peer sr-only">
+                                    <div class="w-6 h-6 rounded-full border-2 border-gray-300 peer-checked:border-brand-blue peer-checked:bg-brand-blue transition"></div>
+                                    <div class="absolute w-2 h-2 rounded-full bg-white opacity-0 peer-checked:opacity-100 transition"></div>
+                                </div>
+                                <span class="ml-3 text-gray-700 group-hover:text-brand-blue transition">Intermédio</span>
                             </label>
-                            <label class="flex items-center">
-                                <input type="radio" name="level" value="avancado" class="text-brand-blue focus:ring-brand-blue h-4 w-4">
-                                <span class="ml-2 text-gray-700">Avançado / Competição</span>
+                            <label class="flex items-center cursor-pointer group">
+                                <div class="relative flex items-center justify-center">
+                                    <input type="radio" name="level" value="avancado" class="peer sr-only">
+                                    <div class="w-6 h-6 rounded-full border-2 border-gray-300 peer-checked:border-brand-blue peer-checked:bg-brand-blue transition"></div>
+                                    <div class="absolute w-2 h-2 rounded-full bg-white opacity-0 peer-checked:opacity-100 transition"></div>
+                                </div>
+                                <span class="ml-3 text-gray-700 group-hover:text-brand-blue transition">Avançado</span>
                             </label>
                         </div>
                     </div>
 
                     <div>
-                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensagem (Opcional)</label>
-                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition"></textarea>
+                        <label for="message" class="block text-sm text-brand-dark mb-2 uppercase tracking-wide">Mensagem (Opcional)</label>
+                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:ring-4 focus:ring-brand-blue/30 focus:border-brand-blue outline-none transition bg-white shadow-inner"></textarea>
                     </div>
 
                     <div class="text-center pt-4">
-                        <button type="submit" class="bg-brand-blue text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-500 transition shadow-lg w-full md:w-auto">
-                            Enviar Pedido de Adesão <i class="fa-solid fa-paper-plane ml-2"></i>
+                        <button type="submit" class="bg-brand-accent text-brand-snow px-10 py-4 rounded-xl font-extrabold text-xl hover:bg-opacity-90 transition shadow-game-piece transform hover:-translate-y-1 w-full md:w-auto">
+                            Enviar Pedido <i class="fa-solid fa-paper-plane ml-2"></i>
                         </button>
                     </div>
                 </form>
                 
                 <!-- Mensagem de Sucesso (Simulada para demonstração) -->
-                <div id="success-message" class="hidden text-center py-8">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fa-solid fa-check text-3xl text-green-500"></i>
+                <div id="success-message" class="hidden text-center py-12">
+                    <div class="w-20 h-20 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-inner transform rotate-3">
+                        <i class="fa-solid fa-check text-4xl text-green-500"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-brand-dark mb-2">Obrigado!</h3>
-                    <p class="text-gray-600">Recebemos o teu pedido. Iremos contactar-te em breve com mais informações.</p>
-                    <button id="reset-form" class="mt-6 text-brand-blue font-semibold hover:underline">Enviar novo pedido</button>
+                    <h3 class="text-3xl font-extrabold text-brand-dark mb-4">Obrigado!</h3>
+                    <p class="text-gray-600 font-medium text-lg">Recebemos o teu pedido. Iremos contactar-te em breve com mais informações.</p>
+                    <button id="reset-form" class="mt-8 bg-brand-blue text-brand-snow px-6 py-2 rounded-lg font-bold hover:bg-opacity-90 transition shadow-game-piece">Enviar novo pedido</button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+    <footer class="bg-brand-dark text-brand-light py-16 border-t-8 border-brand-wood">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div>
-                    <div class="flex items-center gap-2 mb-4">
-                        <img src="assets/logo_white_transparent.png" alt="Clube Neve de Coimbra" class="h-9 w-9 object-contain">
-                        <span class="font-bold text-xl text-white tracking-wider">CNC</span>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="bg-brand-snow p-2 rounded-xl shadow-game-piece transform -rotate-3">
+                            <img src="assets/logo_white_transparent.png" alt="Clube Neve de Coimbra" class="h-10 w-10 object-contain filter invert">
+                        </div>
+                        <span class="font-extrabold text-2xl tracking-wider">CNC</span>
                     </div>
-                    <p class="mb-4">O clube de desportos de inverno da cidade de Coimbra. Promovemos a prática de Ski e Snowboard para todas as idades.</p>
+                    <p class="mb-6 font-medium text-gray-300">O clube de desportos de inverno da cidade de Coimbra. Promovemos a prática de Ski e Snowboard para todas as idades num ambiente divertido e familiar.</p>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fa-brands fa-facebook text-xl"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fa-brands fa-instagram text-xl"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fa-brands fa-tiktok text-xl"></i></a>
+                        <a href="#" class="w-10 h-10 bg-brand-light/10 rounded-xl flex items-center justify-center hover:bg-brand-blue hover:text-brand-snow transition shadow-game-piece"><i class="fa-brands fa-facebook-f text-xl"></i></a>
+                        <a href="#" class="w-10 h-10 bg-brand-light/10 rounded-xl flex items-center justify-center hover:bg-brand-accent hover:text-brand-snow transition shadow-game-piece"><i class="fa-brands fa-instagram text-xl"></i></a>
+                        <a href="#" class="w-10 h-10 bg-brand-light/10 rounded-xl flex items-center justify-center hover:bg-brand-wood hover:text-brand-dark transition shadow-game-piece"><i class="fa-brands fa-tiktok text-xl"></i></a>
                     </div>
                 </div>
                 <div>
-                    <h4 class="text-white font-bold mb-4">Links Rápidos</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#inicio" class="hover:text-brand-blue transition">Início</a></li>
-                        <li><a href="#sobre" class="hover:text-brand-blue transition">Sobre Nós</a></li>
-                        <li><a href="#formacao" class="hover:text-brand-blue transition">Formação & Competição</a></li>
-                        <li><a href="#organizacao" class="hover:text-brand-blue transition">Organização</a></li>
+                    <h4 class="font-extrabold text-xl mb-6 text-brand-snow flex items-center"><i class="fa-solid fa-map text-brand-accent mr-2"></i> Mapa do Site</h4>
+                    <ul class="space-y-3 font-bold text-gray-300">
+                        <li><a href="#inicio" class="hover:text-brand-accent transition flex items-center"><i class="fa-solid fa-caret-right mr-2 text-sm text-brand-blue"></i> Início</a></li>
+                        <li><a href="#sobre" class="hover:text-brand-accent transition flex items-center"><i class="fa-solid fa-caret-right mr-2 text-sm text-brand-blue"></i> Sobre Nós</a></li>
+                        <li><a href="#formacao" class="hover:text-brand-accent transition flex items-center"><i class="fa-solid fa-caret-right mr-2 text-sm text-brand-blue"></i> Formação & Competição</a></li>
+                        <li><a href="#organizacao" class="hover:text-brand-accent transition flex items-center"><i class="fa-solid fa-caret-right mr-2 text-sm text-brand-blue"></i> Organização</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-white font-bold mb-4">Contactos</h4>
-                    <ul class="space-y-2">
-                        <li><i class="fa-solid fa-location-dot mr-2 text-brand-blue"></i> Coimbra, Portugal</li>
-                        <li><i class="fa-solid fa-envelope mr-2 text-brand-blue"></i> info@clubenevedecoimbra.pt</li>
-                        <li><i class="fa-solid fa-phone mr-2 text-brand-blue"></i> +351 900 000 000</li>
+                    <h4 class="font-extrabold text-xl mb-6 text-brand-snow flex items-center"><i class="fa-solid fa-address-book text-brand-blue mr-2"></i> Contactos</h4>
+                    <ul class="space-y-4 font-bold text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-location-dot mt-1 mr-3 text-brand-accent text-xl"></i> 
+                            <span>Coimbra, Portugal<br><span class="text-sm font-medium text-gray-400">A nossa base de operações</span></span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-envelope mr-3 text-brand-blue text-xl"></i> 
+                            <a href="mailto:info@clubenevecoimbra.pt" class="hover:text-brand-snow transition">info@clubenevecoimbra.pt</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-phone mr-3 text-brand-wood text-xl"></i> 
+                            <span>+351 900 000 000</span>
+                        </li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-sm">
+            <div class="border-t-2 border-brand-light/10 mt-16 pt-8 text-center font-bold text-gray-400">
                 <p>&copy; 2026 Clube Neve de Coimbra. Todos os direitos reservados.</p>
             </div>
         </div>
