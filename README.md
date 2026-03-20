@@ -1,6 +1,6 @@
-# Coimbra Ski Club - Landing Page
+# Clube Neve de Coimbra - Landing Page
 
-Esta é a landing page estática para o **Coimbra Ski Club**, pronta a ser publicada no GitHub Pages.
+Esta é a landing page estática para o **Clube Neve de Coimbra**, pronta a ser publicada no GitHub Pages.
 
 ## Tecnologias Utilizadas
 - **HTML5**
@@ -13,7 +13,7 @@ Esta é a landing page estática para o **Coimbra Ski Club**, pronta a ser publi
 1. Faz commit e push deste código para o teu repositório no GitHub:
    ```bash
    git add .
-   git commit -m "Initial commit: Landing page Coimbra Ski Club"
+   git commit -m "Initial commit: Landing page Clube Neve de Coimbra"
    git branch -M main
    git push -u origin main
    ```
